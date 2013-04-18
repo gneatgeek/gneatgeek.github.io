@@ -93,23 +93,20 @@
           background-position : left -40px;
           z-index             : 1;
 
-          &.php        { background-color : $php; }
-          &.javascript { background-color : $js; }
+          &.javascript { background-color : $js;   }
+          &.php        { background-color : $php;  }
+          &.ruby       { background-color : $ruby; }
         }
       }
     }
   }
 
   #gist {
-    li {
-      height : 100px;
-
-      p { margin-top : 40px; }
-    }
+    li { height : 100px; }
   }
   
   @media only screen and (max-width : 800px) {
-    ol {padding : 0;}
+    ol { padding : 0; }
 
     #git, #gist {
       li {
