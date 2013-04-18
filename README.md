@@ -1,4 +1,4 @@
-gneatgeek.github.io
-===================
+gneatgeek.github.com
+====================
 
 My GitHub Subdomain!

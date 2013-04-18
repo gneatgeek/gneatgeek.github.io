@@ -1,0 +1,143 @@
+#content {
+  margin-top     : $menuHeight;
+  padding-bottom : $footerHeight;
+  background     : url("../images/paper.png") repeat;
+
+  @include radial-gradient(center, ellipse cover, lighten($base, 20%), $base);
+  
+  .segment {
+    width            : 100%;
+    margin           : 0;
+    padding          : 12px 0;
+    background-color : $banner;
+    box-shadow       : 0 2px 8px rgba(0, 0, 0, 0.6);
+    color            : lighten($base, 80%);
+    text-shadow      : none;
+    opacity          : 0.6;
+    position         : relative;
+
+    &:hover .anchor { display : block; }
+
+    h2 {
+      padding     : 0;
+      margin      : 0;
+      margin-left : 50px;
+    }
+  }
+
+  a.anchor {
+    display    : none;
+    width      : 35px;
+    height     : 18px;
+    cursor     : pointer;
+    position   : absolute;
+    top        : 20px;
+    left       : 15px;
+    background : url('../images/link.png') no-repeat;
+  }
+
+  ol {
+    li {
+      width          : 29%;
+      height         : 190px;
+      display        : inline-block;
+      vertical-align : top;
+      margin         : 15px;
+
+      h2 { color : lighten($banner, 30%); }
+
+      h2, h3, p {
+        position : relative;
+        margin   : 10px 15px;
+        z-index  : 2;
+      }
+
+      h3 { font-size : 11px; }
+
+      a {
+        position          : relative;
+        display           : block;
+        width             : 100%;
+        height            : 100%;
+        overflow          : hidden;
+        text-decoration   : none;
+        color             : inherit !important;
+        background-color  : $base;
+        border            : 2px solid $borderDark;
+        border-left-color : $borderLight;
+        border-top-color  : $borderLight;
+        padding           : 5px;
+
+        @include borderRadius(15px 0 15px 0);
+
+        &:hover {
+          background-color : darken($base, 2%);
+
+          & > div { background-position : left 0; }
+        }
+
+        &:active {
+          border            : 2px solid $borderLight;
+          border-left-color : $borderDark;
+          border-top-color  : $borderDark;
+        }
+
+        div {
+          width               : 40px;
+          height              : 40px;
+          position            : absolute;
+          right               : 0;
+          top                 : 0;
+          background-color    : #638495;
+          background-image    : url('../images/ghost_atlas.png');
+          background-position : left -40px;
+          z-index             : 1;
+
+          &.php        { background-color : $php; }
+          &.javascript { background-color : $js; }
+        }
+      }
+    }
+  }
+
+  #gist {
+    li {
+      height : 100px;
+
+      p { margin-top : 40px; }
+    }
+  }
+  
+  @media only screen and (max-width : 800px) {
+    ol {padding : 0;}
+
+    #git, #gist {
+      li {
+        width   : 100%;
+        display : block;
+        margin  : 15px 0;
+        padding : 5px 0;
+
+        a {
+          width : auto;
+
+          @include borderRadius(0);
+        }
+      }
+    }
+
+    #git {
+      li { height : 140px; }
+    }
+  }
+
+  @media only screen and (min-width : 801px) and (max-width : 1150px) {
+    #git, #gist {
+      li { width : 45%; }
+    }
+
+    #git {
+      li { height : 150px; }
+    }
+  }
+}

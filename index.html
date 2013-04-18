@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="description" content="Rory Hardy's Open Source Projects" />
+		<meta name="author" content="Rory Hardy [GneatGeek]" />
+		<meta name="keywords" content="GneatGeek, Open Source, Code, Projects, Rory Hardy, PHP, JavaScript, CSS, SASS">
+		<meta name="robots" content="index, follow, archive" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width; initial-scale=1" />
+		<title>Rory Hardy [GneatGeek] | GitHub</title>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<div id="main">
+			<header>
+				<div id="headerImg"><img src="images/logo.png" width="248" height="150" alt="Logo Image"></div>
+			</header>
+			<nav id="menu">
+				<ul>
+					<li><a href="#repos" class="scroll">Repos</a></li><!-- Remove once white-space-collapse is implemented.
+					--><li><a href="#gists" class="scroll">Gists</a></li><!--
+					--><li><a href="https://github.com/gneatgeek" target="_blank">GitHub Profile</a></li><!--
+					--><li><a href="http://vizify.com/rory-hardy" target="_blank">Vizify</a></li>
+				</ul>
+			</nav>
+			<section id="content">
+				<!--[if lt IE 9]>
+					<hr>
+					<h2 style="color:#DD1A12;">WARNING!</h2>
+					<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade
+						your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install
+							Google Chrome Frame</a> to better experience this site.</p>
+					<hr>
+				<![endif]-->
+				<div class="segment">
+					<h2 id="about">
+						<a href="#about" class="anchor"></a>About
+					</h2>
+				</div>
+				<article style="min-height:210px;">
+					<div class="moi">
+						<img height="210" width="210"
+							src="https://secure.gravatar.com/avatar/e1f410aec9570eb7643464bf5c3e704d?s=420&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png">
+					</div>
+					<p>
+						My name is Rory Hardy and I am a recent graduate of
+						<a href="http://oregonstate.edu/" target="_blank">Oregon State University</a> with a major
+						in computer science and a minor in business &amp; entrepreneurship. My primary focus
+						is web development, though I am interested in most applications of computing.
+					</p>
+					<p>
+						I love learning new things and have taken opportunities to dive into shader programming,
+						parallel programming, to teach a few classes, and more. These opportunities have enabled
+						me to explore areas of computer science that are fascinating to me but not a part of my
+						learning curriculum. I&rsquo;ve been able to build 3D renders based on mathematics, program on
+						a GPGPU with openCL, and more, which has given me new perspectives. In short, I have a
+						desire to understand which drives me to learn. To learn more about me visit my
+						<a href="https://www.vizify.com/rory-hardy" target="_blank">Vizify profile</a>.
+					</p>
+					<p>This page contains links to my open source projects and projects to which I have contributed to on GitHub.</p>
+				</article>
+				<div class="segment">
+					<h2 id="repos">
+						<a href="#repos" class="anchor"></a>Repositories
+					</h2>
+				</div>
+				<ol id="git"></ol>
+				<div class="segment">
+					<h2 id="gists">
+						Gists<a href="#gists" class="anchor"></a>
+					</h2>
+				</div>
+				<ol id="gist"></ol>
+			</section>
+			<footer></footer>
+		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script>(function(b,f){b.fn.stickyMenu=function(a){var d,c=this,e=c.offset().top,g="scroll.stickymenu-"+c.attr("id");a||(a="sticky");b(f).bind(g,function(){d?b(this).scrollTop()<=e&&(c.toggleClass(a),d=!1):b(this).scrollTop()>e&&(c.toggleClass(a),d=!0)});return this}})(jQuery,window);$(document).ready(function(){$.getJSON("https://api.github.com/users/gneatgeek/repos?callback=?",function(b){$.each(b.data,function(b,a){var d=$("<li>"),c=$("<a>").attr({href:a.html_url,target:"_blank"}).appendTo(d);c.append($("<div>").addClass((a.language||"").toLowerCase()));c.append($("<h2>").text(a.name));c.append($("<h3>").text(a.language||"Undefined Language"));c.append($("<p>").text(a.description||"No description :("));d.appendTo("#git")})});$.getJSON("https://api.github.com/users/gneatgeek/gists?callback=?",function(b){$.each(b.data,function(b,a){var d=$("<li>"),c=$("<a>").attr({href:a.html_url,target:"_blank"}).appendTo(d);c.append($("<div>"));c.append($("<p>").text(a.description||"No description :("));d.appendTo("#gist")})});$(".scroll").click(function(b){b.preventDefault();$("html, body").stop().animate({scrollTop:$(this.hash).offset().top-50},1E3)});$("#menu").stickyMenu()});</script>
+	</body>
+</html>

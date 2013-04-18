@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+//**************************** Color Theme
+
+$base   : #223958;
+$banner : #25686f;
+$php    : #777bb4;
+$js     : #c34500;
+
+//**************************** Other Variables
+
+$fontFamily   : Verdana, Helvetica, Arial, sans-serif;
+$fontColor    : lighten($base, 60%);
+$borderLight  : lighten($base, 5%);
+$borderDark   : darken($base, 5%);
+$nav          : lighten($base, 15%);
+$navGrad      : 6%;
+$menuHeight   : 38px;
+$footerHeight : 10px;
+
+//**************************** Mixins
+
+@mixin borderRadius($params) {
+  -webkit-border-radius : $params;
+  -moz-border-radius    : $params;
+  -o-border-radius      : $params;
+  border-radius         : $params;
+}
+
+@mixin radial-gradient($pos, $shape, $inner, $outer) {
+  background-image : -webkit-radial-gradient($pos, $shape, $inner 0%, $outer 100%);
+  background-image : -moz-radial-gradient($pos, $shape, $inner 0%, $outer 100%);
+  background-image : -o-radial-gradient($pos, circle, $inner 0%, $outer 100%);
+  background-image : radial-gradient($pos, $shape, $inner 0%, $outer 100%);
+}
+
+@mixin gradient($from, $to) {
+  background : -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background : -moz-linear-gradient(top, $from, $to);
+  background : -o-linear-gradient(top, $from, $to);
+  background : -ms-linear-gradient(top, $from, $to);
+  background : linear-gradient(top, $from, $to);
+}
+
+//**************************** Style Time
+
+html, body { height : 100%; }
+
+body, #main, #content, ul {
+  margin  : 0;
+  padding : 0;
+}
+
+body { font-family : $fontFamily; }
+
+#main {
+  position         : relative;
+  background-color : $base ;
+  color            : $fontColor;
+  text-shadow      : 1px 1px 5px #000;
+  min-height       : 90%;
+  min-width        : 250px;
+}
+
+header {
+  height      : 150px;
+  background  : $banner url('../images/background.png') repeat;
+  color       : #000;
+  text-shadow : none;
+
+  a { font-weight : bold; }
+}
+
+.moi {
+  float        : left;
+  margin-right : 10px;
+}
+
+nav {
+  padding          : 0;
+  height           : $menuHeight;
+  width            : 100%;
+  text-align       : center;
+  background-color : $nav;
+  position         : absolute;
+  white-space      : nowrap;
+  overflow         : hidden;
+  //white-space-collapse: discard; Not yet implemented in browsers.
+
+  &.sticky {
+    position   : fixed;
+    top        : 0;
+    opacity    : 0.8;
+    z-index    : 100;
+    box-shadow : 0 1px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  ul {
+    list-style : none;
+
+    & > :last-child { border-right : 1px solid lighten($nav, 20%); }
+
+    li {
+      display     : inline-block;
+      border-left : 1px solid lighten($nav, 20%);
+
+      a {
+        color           : $fontColor;
+        height          : $menuHeight;
+        line-height     : $menuHeight;
+        padding         : 0 10px;
+        display         : inherit;
+        text-decoration : none;
+        text-shadow     : none;
+
+        @media only screen and (max-width: 350px) {
+          padding : 0 3px;
+        }
+
+        &:hover {
+          background-color : darken($nav, $navGrad);
+
+          @include gradient($nav, darken($nav, $navGrad));
+        }
+
+        &:active {
+          outline : none;
+
+          @include gradient(darken($nav, $navGrad), $nav);
+        }
+      }
+    }
+  }
+}
+
+::selection {
+  background : #848D82;
+  color      : #f1f1f1;
+}
+
+article{ padding : 5px 10px; }
+
+a { color: lighten($banner, 30%); }
+
+@media only screen and (max-width: 450px) {
+  .moi {
+    float      : none;
+    margin     : 0;
+    text-align : center;
+  }
+}
+
+@import "content";
