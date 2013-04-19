@@ -75,6 +75,6 @@
 			<footer></footer>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script>(function(b,f){b.fn.stickyMenu=function(a){var d,c=this,e=c.offset().top,g="scroll.stickymenu-"+c.attr("id");a||(a="sticky");b(f).bind(g,function(){d?b(this).scrollTop()<=e&&(c.toggleClass(a),d=!1):b(this).scrollTop()>e&&(c.toggleClass(a),d=!0)});return this}})(jQuery,window);$(document).ready(function(){$.getJSON("https://api.github.com/users/gneatgeek/repos?callback=?",function(b){$.each(b.data,function(b,a){var d=$("<li>"),c=$("<a>").attr({href:a.html_url,target:"_blank"}).appendTo(d);c.append($("<div>").addClass((a.language||"").toLowerCase()));c.append($("<h2>").text(a.name));c.append($("<h3>").text(a.language||"Undefined Language"));c.append($("<p>").text(a.description||"No description :("));d.appendTo("#git")})});$.getJSON("https://api.github.com/users/gneatgeek/gists?callback=?",function(b){$.each(b.data,function(b,a){var d=$("<li>"),c=$("<a>").attr({href:a.html_url,target:"_blank"}).appendTo(d);c.append($("<div>"));c.append($("<p>").text(a.description||"No description :("));d.appendTo("#gist")})});$(".scroll").click(function(b){b.preventDefault();$("html, body").stop().animate({scrollTop:$(this.hash).offset().top-50},1E3)});$("#menu").stickyMenu()});</script>
+		<script src="js/gg.js"></script>
 	</body>
 </html>
