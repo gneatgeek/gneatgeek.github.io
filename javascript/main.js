@@ -13,10 +13,9 @@ $(document).ready(function() {
 
   function addRepo(repo) {
     var $list = $('<li>'),
-        $link = $('<a>').attr({
-          href   : repo.html_url,
-          target : '_blank'
-        }).appendTo($list);
+        $link = $('<a>')
+          .attr({href: repo.html_url, target: '_blank'})
+          .appendTo($list);
 
     $link.append($('<div>').addClass((repo.language || '').toLowerCase()));
     $link.append($('<h2>').text(repo.name));
@@ -27,10 +26,9 @@ $(document).ready(function() {
 
   function addGist(gist) {
     var $list = $('<li>'),
-        $link = $('<a>').attr({
-          href   : gist.html_url,
-          target : '_blank'
-        }).appendTo($list);
+        $link = $('<a>')
+          .attr({href: gist.html_url, target: '_blank'})
+          .appendTo($list);
 
     $link.append($('<div>'));
     $link.append($('<p>').text((gist.description || 'No description :(')));

@@ -1,14 +1,6 @@
-### OSX Related
-.DS_Store
+# These rules are from "github/gitignore" - https://github.com/github/gitignore
 
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-### Aptana/Eclipse Related
+### Eclipse
 *.pydevproject
 .project
 .metadata
@@ -36,5 +28,34 @@ local.properties
 # PDT-specific
 .buildpath
 
-### SASS Ignore
-.sass-cache
+### Linux
+.*
+!.gitignore
+*~
+
+### OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+### Sass Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+
+### SublimeText
+# SublimeText project files
+*.sublime-workspace
+
+### VIM
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+#*~
